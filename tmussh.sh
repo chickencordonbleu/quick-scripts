@@ -39,8 +39,11 @@ if [ ! -f "$filename" ]; then
   exit 1
 fi
 
+# Generate a timestamp for the session name
+timestamp=$(date +"%Y_%m_%d_%H_%M_%S")
+session_name="ssh_session_$timestamp"
+
 # Start a new tmux session
-session_name="ssh_session"
 tmux new-session -d -s $session_name
 
 # Counter for the first pane
